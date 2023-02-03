@@ -2,8 +2,6 @@ const Project = () => {
   
     return (
         <>
-  'Hello'
-        
         </>
 
 
