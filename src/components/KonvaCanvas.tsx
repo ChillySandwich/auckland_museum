@@ -1,5 +1,6 @@
-import React from 'react'
 import { Layer, Stage, Text, Circle } from 'react-konva'
+import { IKonvaCanvas } from '../interfaces/ComponentInterfaces'
+import KonvaImage from './KonvaImage'
 
 const KonvaCanvas = (props: IKonvaCanvas) => {
     const { orientation, imageUrl, title, subtitle, touchpointRadius, touchpointColor, touchpoints } = props
