@@ -5,19 +5,23 @@ import reportWebVitals from './reportWebVitals';
 import { createBrowserRouter, RouterProvider} from "react-router-dom";
 import Root from "./routes/root";
 import ErrorPage from './routes/error-page';
-import Project from './components/Project';
+import Project from './routes/project';
 
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Root/>,
+    element: <Root />,
     errorElement: <ErrorPage />
   },
   {
-    path: "projects/:id",
-    element: <Project/>
-    },
+    path: "projects/:projectId",
+    element: <Project />
+  },
+  // {
+  //   path: "projects/:projectId/:touchPointId",
+  //   element: <ProjectTouchPoint />,
+  // },
 
 
     
