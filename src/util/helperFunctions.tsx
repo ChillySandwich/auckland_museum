@@ -38,9 +38,8 @@ export const displayTouchPointPage = (orientation: string, language: boolean, de
                     :
 
                     <>
-                        <div
-                            style={{ height: 1920 * 2 / 3, width: 1080, overflow: 'hidden' }}>
-                            <img style={{ objectFit: 'cover', maxHeight: '100%' }} src={imageUrl} alt={'touchpoint'} />
+                        <div style={{ height: 1920 * 2 / 3, width: 1080, overflow: 'hidden' }}>
+                            <img style={{ objectFit: 'cover', height: 1920 * 2 / 3 }} src={imageUrl} alt={'touchpoint'} />
                         </div>
 
                         <div style={{ padding: '0px 50px 0px 50px' }}>
