@@ -29,7 +29,10 @@ export interface IKonvaCanvas {
     orientation: string
     language: boolean
     title: IText
-    subtitle: IText    
+    subtitle: IText
+    headerSize: string
+    subheaderSize:string
+
   }
   
 

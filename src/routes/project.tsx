@@ -22,7 +22,7 @@ const Project = () => {
     //HOOKS
     const navigate = useNavigate()
     RedirectPageIfNoInteraction()
-    
+
 
     const params = useParams()
     const projectId = params.projectId
@@ -65,8 +65,12 @@ const Project = () => {
                         language={language}
                         title={title}
                         subtitle={subtitle}
+                        headerSize={'5em'}
+                        subheaderSize={'3em'}
                     />
+                    <div style={{marginLeft: '2.5em'}}>
                     <LanguageButton text={`Switch to ${language ? "Te Reo" : "English"}`} handleTouchEnd={handleLanguageChange} />
+                    </div>
                 </div>
 
                 {orientation === 'horizontal' &&

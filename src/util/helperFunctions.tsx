@@ -17,6 +17,8 @@ export const displayTouchPointPage = (orientation: string, language: boolean, de
                                 language={language}
                                 title={descriptionHeader}
                                 subtitle={description}
+                                headerSize={'3em'}
+                                subheaderSize={'2em'}
                             />
 
                             <div style={{ margin: '2em', display: 'flex', flexDirection: 'row' }}>
@@ -38,23 +40,25 @@ export const displayTouchPointPage = (orientation: string, language: boolean, de
                     :
 
                     <>
-                        <div style={{ height: 1920 * 2 / 3, width: 1080, overflow: 'hidden' }}>
-                            <img style={{ objectFit: 'cover', height: 1920 * 2 / 3 }} src={imageUrl} alt={'touchpoint'} />
+                        <div style={{ height: 1800 * 2 / 3, width: 1080, overflow: 'hidden' }}>
+                            <img style={{ objectFit: 'cover', height: 1800 * 2 / 3 }} src={imageUrl} alt={'touchpoint'} />
                         </div>
 
-                        <div style={{ padding: '0px 50px 0px 50px' }}>
+                        <div style={{ padding: '0px 1em 0px 1em' }}>
                             <ProjectText
                                 orientation={orientation}
                                 language={language}
                                 title={descriptionHeader}
                                 subtitle={description}
+                                headerSize={'3em'}
+                                subheaderSize={'2em'}
 
                             />
                         </div>
 
-                        <div style={{ margin: '3em 0 3em 5.5em', display: 'flex', flexDirection: 'row' }}>
+                        <div style={{ margin: '2em 0 0 4.5em', display: 'flex', flexDirection: 'row'}}>
                             <NavigationButton text={"Back"} handleTouchEnd={(handleNavigation)} />
-                            <div style={{ marginTop: '2em' }}>
+                            <div style={{ marginLeft: '3em'}}>
                                 <LanguageButton text={`Switch to ${language ? "Te Reo" : "English"}`} handleTouchEnd={handleLanguageChange} />
                             </div>
                         </div>

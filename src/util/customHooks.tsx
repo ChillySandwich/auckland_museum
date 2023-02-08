@@ -12,19 +12,20 @@ export const RedirectPageIfNoInteraction = () => {
         let timeOut: string | number | NodeJS.Timeout | undefined;
 
         const detectTouch = () => {
+            console.log('clicked!')
             clearTimeout(timeOut)
 
             timeOut = setTimeout(() => {
                 setCounter(counter + 1);
                 navigate('/')
-            }, 60000);
+            }, 600000);
         }
 
-        document.body.addEventListener("touchend", detectTouch);
+        document.addEventListener("touchend", detectTouch);
 
 
         return () => {
-            document.body.removeEventListener("touchend", detectTouch)
+            document.removeEventListener("touchend", detectTouch)
         }
 
     }, [counter, navigate],
