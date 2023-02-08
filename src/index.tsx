@@ -6,7 +6,7 @@ import { createBrowserRouter, RouterProvider} from "react-router-dom";
 import Root from "./routes/root";
 import ErrorPage from './routes/error-page';
 import Project from './routes/project';
-
+import TouchPointId from './routes/touchPointId';
 
 const router = createBrowserRouter([
   {
@@ -14,14 +14,15 @@ const router = createBrowserRouter([
     element: <Root />,
     errorElement: <ErrorPage />
   },
+
   {
-    path: "projects/:projectId",
+    path: "/projects/:projectId",
     element: <Project />
   },
-  // {
-  //   path: "projects/:projectId/:touchPointId",
-  //   element: <ProjectTouchPoint />,
-  // },
+  {
+    path: "/projects/:projectId/:touchPointId",
+    element: <TouchPointId/>,
+  },
 
 
     

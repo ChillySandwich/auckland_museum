@@ -1,47 +1,96 @@
-import React, { useEffect, useRef, useState } from 'react'
+//REACT
+import { useState } from 'react'
+import { useNavigate, useParams } from 'react-router-dom'
+
+//CUSTOM HOOKS
+import { RedirectPageIfNoInteraction } from '../util/customHooks'
+
+//KONVA
 import KonvaCanvas from './../components/KonvaCanvas'
-import { useParams } from 'react-router-dom'
-import  {projectConfig } from '../config/data'
+
+//CONFIG
+import { projectConfig } from '../config/data'
+
+//CUSTOM COMPONENTS
+import { NavigationButton } from './../components/NavigationButton'
+import { LanguageButton } from './../components/LanguageButton'
+import ProjectText from './../components/ProjectText'
+
 
 const Project = () => {
+
+    //HOOKS
+    const navigate = useNavigate()
+    RedirectPageIfNoInteraction()
     
+
     const params = useParams()
     const projectId = params.projectId
     const project = projectConfig.filter((p => p.id === projectId))[0]
+    const { title, subtitle, imageUrl, orientation, touchpoints, touchpointOuterColor, touchpointOpacity } = project
 
-    const {imageURL, orientation, touchpoints, touchpointRadius, touchpointOuterColor} = project
-
-    const [ containerDimensions, setContainerDimensions ] = useState({x:0, y:0})
-
+    //STATE
+    const [language, setLanguage] = useState(false)
 
 
-    const containerRef = useRef<HTMLDivElement>(null)
 
-    useEffect(() => {
-        if (containerRef.current) {
+    //HANDLERS
+    const handleLanguageChange = () => {
 
-            let width = parseInt(containerRef.current.style.width)
-            let height = parseInt(containerRef.current.style.height)
-           
-            setContainerDimensions({x: width , y: height})
-            console.log(containerDimensions)
-        }
-    }, []);
+        setLanguage(!language)
+
+    }
+
+    const handleNavigation = () => {
+        navigate("/");
+    }
 
 
     return (
 
-        <div style={{ display: 'flex', flexDirection: 'row', border: '1px solid' }}>
-            <div style={{ height: window.innerHeight, width: window.innerWidth * 1 / 3}}>
-                <div style={{ }}>Octopus </div>
-                <div>Subheader</div>
+        <div style={{
+            display: 'flex', flexDirection: orientation === 'horizontal' ? 'row' : 'column', justifyContent: 'space-between',
+            width: orientation === 'horizontal' ? 1920 : 1080, height: orientation === 'horizontal' ? 1080 : 1920,
+        }}>
 
+            <div style={{
+                display: 'flex', flexDirection: 'column',
+                justifyContent: 'space-between',
+                height: 'auto',
+                width: orientation === 'horizontal' ? 1920 * 1 / 3 : 1080,
+            }}>
+                <div>
+                    <ProjectText
+                        orientation={orientation}
+                        language={language}
+                        title={title}
+                        subtitle={subtitle}
+                    />
+                    <LanguageButton text={`Switch to ${language ? "Te Reo" : "English"}`} handleTouchEnd={handleLanguageChange} />
+                </div>
 
+                {orientation === 'horizontal' &&
+                    <div style={{ padding: '3em' }}>
+                        <NavigationButton text={"Home"} handleTouchEnd={handleNavigation} />
+                    </div>
+                }
             </div>
-            <div ref={containerRef} style={{ height: window.innerHeight, width: window.innerWidth * 2 / 3 }}>
 
-                <KonvaCanvas stageWidth={containerDimensions.x} stageHeight={containerDimensions.y} imageUrl={imageURL} orientation={orientation} touchpoints= {touchpoints} />
-            </div>
+
+            <KonvaCanvas
+                projectId={params.projectId}
+                imageUrl={imageUrl}
+                orientation={orientation}
+                touchpoints={touchpoints}
+                touchpointColor={touchpointOuterColor}
+                touchpointOpacity={touchpointOpacity}
+            />
+
+            {orientation === 'vertical' &&
+                <div style={{ padding: '3em' }}>
+                    <NavigationButton text={"Home"} handleTouchEnd={handleNavigation} />
+                </div>
+            }
 
         </div>
     )

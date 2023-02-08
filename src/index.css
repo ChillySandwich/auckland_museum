@@ -11,3 +11,25 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+
+@font-face {
+  font-family: 'Barlow-Regular';
+  src: url('fonts/Barlow-Regular.woff2') format('woff2'),
+      url('fonts/Barlow-Regular.woff') format('woff'),
+      url('fonts/Barlow-Regular.TTF') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+
+@font-face {
+  font-family: 'Barlow-SemiBold';
+  src: url('fonts/Barlow-SemiBold.woff2') format('woff2'),
+      url('fonts/Barlow-SemiBold.woff') format('woff'),
+      url('fonts/Barlow-SemiBold.TTF') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}

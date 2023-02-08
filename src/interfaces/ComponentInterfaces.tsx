@@ -1,21 +1,35 @@
-import { ITouchpoint } from "./DataInterfaces"
+import { KonvaEventObject } from "konva/lib/Node"
+import { MouseEventHandler, TouchEventHandler } from "react"
+import { IText, ITouchpoint } from "./DataInterfaces"
 
 export interface IKonvaCanvas {
-    stageWidth: number
-    stageHeight: number
+    projectId?: string 
     imageUrl: string
     orientation: string
-    touchpointRadius?: number
     touchpointColor?: string
-    touchpoints: ITouchpoint[]
+    touchpoints?: ITouchpoint[]
+    touchpointOpacity: number
+    onTouchEnd?: (evt: KonvaEventObject<TouchEvent>) => void
   }
 
-  export interface IImageProps {
+  export interface IKonvaImageProps {
+    containerWidth: number
+    containerHeight: number
+    orientation: string
     imageUrl: string
-    width?: number
-    height?: number
-    positionX: number
-    positionY: number
+  }
+
+  export interface IButtonComponent {
+    text : string
+    onClick?: MouseEventHandler<HTMLButtonElement>
+    handleTouchEnd: TouchEventHandler<HTMLButtonElement>
+  }
+
+  export interface IProjectText {
+    orientation: string
+    language: boolean
+    title: IText
+    subtitle: IText    
   }
   
 
