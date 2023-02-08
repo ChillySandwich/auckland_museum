@@ -27,7 +27,7 @@ export const RedirectPageIfNoInteraction = () => {
             document.body.removeEventListener("touchend", detectTouch)
         }
 
-    }, [],
+    }, [counter, navigate],
     )
 
 
