@@ -22,13 +22,14 @@ I made the following assumptions with this project:
 1. I assumed that a 27" FHD touch screen had a pixel resolution of 1920 x 1080 (horizontal) and 1080 x 1920 (vertical)
 2. I create a joint config file, with both sets of data combined, which is found here [config](src/config/data.tsx)
 3. I assumed the config file didn't need to be a .txt file
-- I assumed that users would be able to create an image folder, with a relevant ID, and add this to the public folder.
+- I assumed that users would be able to create an image folder, with a relevant ID, and add this to the public folder
 - I assumed that users would also be able to follow along with the configuration of the config file to add their own projects
 4. No click events were included on the project, all are touch events, so these won't register when deployed online
 5. The South Island hot spots are red circles, similar to the octopus. I've added these in the centre of each region
 6. Wireframes were a bit unclear, but for both horizontal and vertical layouts the format is presented as title, subheader, then below is the interactive image
 7. Further, I added the navigation buttons at the bottom of each page, while language button under the relevant content 
 8. Lastly I created a landing page to be able to navigate to both of the interactives
+9. Some images in the vertical South Island layout were cut off based on original image size
 
 
 ### Notes and Learnings
