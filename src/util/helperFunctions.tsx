@@ -11,22 +11,27 @@ export const displayTouchPointPage = (orientation: string, language: boolean, de
             {
                 orientation === 'horizontal' ?
                     <>
-                        <div style={{ padding: '0px 50px 0px 50px', height: '100%', width: 1920 * 1 / 3, }}>
-                            <ProjectText
-                                orientation={orientation}
-                                language={language}
-                                title={descriptionHeader}
-                                subtitle={description}
-                                headerSize={'3em'}
-                                subheaderSize={'2em'}
-                            />
-
-                            <div style={{ margin: '2em', display: 'flex', flexDirection: 'row' }}>
-                                <NavigationButton text={"Back"} handleTouchEnd={(handleNavigation)} />
-                                <div style={{ marginTop: '2em' }}>
-                                    <LanguageButton text={`Switch to ${language ? "Te Reo" : "English"}`} handleTouchEnd={handleLanguageChange} />
-                                </div>
+                        <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between', height: 1080, width: 1920 * 1 / 3 }}>
+                            <div style={{padding: '3em'}}>
+                                <ProjectText
+                                    orientation={orientation}
+                                    language={language}
+                                    title={descriptionHeader}
+                                    subtitle={description}
+                                    headerSize={'3em'}
+                                    subheaderSize={'2em'}
+                                />
+                                <LanguageButton text={`Switch to ${language ? "Te Reo" : "English"}`} handleTouchEnd={handleLanguageChange} />
                             </div>
+
+                            <div style={{ margin: '2em', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+
+
+                                <NavigationButton text={"Back"} handleTouchEnd={(handleNavigation)} />
+
+                            </div>
+
+
 
                         </div>
 
@@ -36,7 +41,6 @@ export const displayTouchPointPage = (orientation: string, language: boolean, de
                         </div>
 
                     </>
-
                     :
 
                     <>
@@ -44,7 +48,7 @@ export const displayTouchPointPage = (orientation: string, language: boolean, de
                             <img style={{ objectFit: 'cover', height: 1800 * 2 / 3 }} src={imageUrl} alt={'touchpoint'} />
                         </div>
 
-                        <div style={{ padding: '0px 1em 0px 1em' }}>
+                        <div style={{ padding: '3em 4em 0 4em' }}>
                             <ProjectText
                                 orientation={orientation}
                                 language={language}
@@ -56,9 +60,9 @@ export const displayTouchPointPage = (orientation: string, language: boolean, de
                             />
                         </div>
 
-                        <div style={{ margin: '2em 0 0 4.5em', display: 'flex', flexDirection: 'row'}}>
+                        <div style={{ margin: '2em 0 0 4.5em', display: 'flex', flexDirection: 'row' }}>
                             <NavigationButton text={"Back"} handleTouchEnd={(handleNavigation)} />
-                            <div style={{ marginLeft: '3em'}}>
+                            <div style={{ marginLeft: '3em' }}>
                                 <LanguageButton text={`Switch to ${language ? "Te Reo" : "English"}`} handleTouchEnd={handleLanguageChange} />
                             </div>
                         </div>

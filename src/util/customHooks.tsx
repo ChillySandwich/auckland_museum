@@ -9,23 +9,23 @@ export const RedirectPageIfNoInteraction = () => {
 
     useEffect(() => {
 
-        let timeOut: string | number | NodeJS.Timeout | undefined;
+        console.log(counter)
+
+        let timeOut = setTimeout(() => {
+            setCounter(counter + 1);
+            navigate('/')
+        }, 600000);
 
         const detectTouch = () => {
-            console.log('clicked!')
+            console.log('touched')
             clearTimeout(timeOut)
-
-            timeOut = setTimeout(() => {
-                setCounter(counter + 1);
-                navigate('/')
-            }, 600000);
         }
 
-        document.addEventListener("touchend", detectTouch);
+        document.addEventListener("touchstart", detectTouch);
 
 
         return () => {
-            document.removeEventListener("touchend", detectTouch)
+            document.removeEventListener("touchstart", detectTouch)
         }
 
     }, [counter, navigate],

@@ -60,6 +60,7 @@ const Project = () => {
                 width: orientation === 'horizontal' ? 1920 * 1 / 3 : 1080,
             }}>
                 <div>
+                <div style={{padding: '4em 0em 0em 4em'}}>
                     <ProjectText
                         orientation={orientation}
                         language={language}
@@ -68,6 +69,7 @@ const Project = () => {
                         headerSize={'5em'}
                         subheaderSize={'3em'}
                     />
+                    </div>
                     <div style={{marginLeft: '2.5em'}}>
                     <LanguageButton text={`Switch to ${language ? "Te Reo" : "English"}`} handleTouchEnd={handleLanguageChange} />
                     </div>
