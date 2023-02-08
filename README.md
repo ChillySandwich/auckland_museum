@@ -20,7 +20,7 @@ You will also see any lint errors in the console.
 I made the following assumptions with this project:
 
 1. I assumed that a 27" FHD touch screen had a pixel resolution of 1920 x 1080 (horizontal) and 1080 x 1920 (vertical)
-2. I create a joint config file, with both sets of data combined, which is found here [config](src/config/data.tsx)
+2. I create a joint config file, with both sets of data combined, which is found here: [config](src/config/data.tsx)
 3. I assumed the config file didn't need to be a .txt file
 - I assumed that users would be able to create an image folder, with a relevant ID, and add this to the public folder
 - I assumed that users would also be able to follow along with the configuration of the config file to add their own projects
