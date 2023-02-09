@@ -18,7 +18,7 @@ import ProjectText from './../components/ProjectText'
 
 
 const Project = () => {
-
+    
     //HOOKS
     const navigate = useNavigate()
     RedirectPageIfNoInteraction()
