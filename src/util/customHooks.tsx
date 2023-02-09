@@ -1,34 +1,48 @@
-import { useEffect, useState } from 'react';
+//REACT
+import { useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom'
 
 
-export const RedirectPageIfNoInteraction = () => {
-    const [counter, setCounter] = useState(0)
-    const navigate = useNavigate()
-
-
+function useInterval(callback : any, delay : any) {
+    const savedCallback = useRef<any>();
+  
+    // Remember the latest function.
     useEffect(() => {
+      savedCallback.current = callback;
+    }, [callback]);
+  
+    // Set up the interval.
+    useEffect(() => {
+      function tick() {
+        savedCallback.current();
+      }
+      if (delay !== null) {
+        let id = setInterval(tick, delay);
+        return () => clearInterval(id);
+      }
+    }, [delay]);
+  }
 
-        let timeOut: string | number | NodeJS.Timeout | undefined;
+  /**
+   * Above code referenced from: https://overreacted.io/making-setinterval-declarative-with-react-hooks/
+   */
 
-        const detectTouch = () => {
-            clearTimeout(timeOut)
+export const RedirectPageIfNoInteraction = () => {
+    let [count, setCount] = useState(0);
+    const navigate = useNavigate();
 
-            timeOut = setTimeout(() => {
-                setCounter(counter + 1);
+    useInterval(() => {
+            setCount(count + 1);
+            if (count === 60) {
                 navigate('/')
-            }, 60000);
-        }
-
-        document.body.addEventListener("touchend", detectTouch);
+            }
+    }, 1000)
 
 
-        return () => {
-            document.body.removeEventListener("touchend", detectTouch)
-        }
+    const detectTouch = () => {
+        setCount(0)
+    };
 
-    }, [counter, navigate],
-    )
+    document.addEventListener('touchstart', detectTouch);
 
-
-}
+};

@@ -1,3 +1,4 @@
+//INTERFACES
 import { IProjectDetails } from "../interfaces/DataInterfaces";
 
 export const projectConfig : IProjectDetails[]= [

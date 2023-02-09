@@ -1,8 +1,13 @@
+//REACT
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import { createBrowserRouter, RouterProvider} from "react-router-dom";
+
+//MISC
 import './index.css';
 import reportWebVitals from './reportWebVitals';
-import { createBrowserRouter, RouterProvider} from "react-router-dom";
+
+//ROUTES
 import Root from "./routes/root";
 import ErrorPage from './routes/error-page';
 import Project from './routes/project';

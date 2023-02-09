@@ -1,5 +1,8 @@
-import { KonvaEventObject } from "konva/lib/Node"
+//REACT
 import { MouseEventHandler, TouchEventHandler } from "react"
+//KONVA
+import { KonvaEventObject } from "konva/lib/Node"
+//INTERFACES
 import { IText, ITouchpoint } from "./DataInterfaces"
 
 export interface IKonvaCanvas {
@@ -29,7 +32,10 @@ export interface IKonvaCanvas {
     orientation: string
     language: boolean
     title: IText
-    subtitle: IText    
+    subtitle: IText
+    headerSize: string
+    subheaderSize:string
+
   }
   
 
